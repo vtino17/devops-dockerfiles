@@ -1,0 +1,17 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Docker Compose files
+        run: |
+          for f in $(find . -name docker-compose.yml); do
+            docker compose -f "$f" config -q && echo "✓ $f" || exit 1
+          done
