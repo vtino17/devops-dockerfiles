@@ -1,5 +1,10 @@
 # DevOps Dockerfiles
 
+[![License](https://img.shields.io/badge/License-MIT-22AA55?style=flat-square)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/vtino17/devops-dockerfiles?style=flat-square&logo=github)](https://github.com/vtino17/devops-dockerfiles/stargazers)
+[![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker)](https://docker.com)
+[![Last commit](https://img.shields.io/github/last-commit/vtino17/devops-dockerfiles?style=flat-square)](https://github.com/vtino17/devops-dockerfiles/commits)
+
 Production-ready Docker Compose stacks for common services.
 
 ## Stacks
