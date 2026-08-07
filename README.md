@@ -12,10 +12,8 @@ Production-ready Docker Compose stacks for common services.
 | Stack | Services | Port |
 |-------|----------|------|
 | `nginx` | Nginx + SSL + reverse proxy | 80, 443 |
-| `postgres` | PostgreSQL + pgAdmin | 5432 |
-| `redis` | `mongodb` | `kafka` | `monitoring` | Prometheus + Grafana + Node Exporter | 9090, 3000 |
-| `elk` | Elasticsearch + Logstash + Kibana | 9200, 5601 |
-| `proxy` | Traefik + Cloudflare | 80, 443 |
+| `postgres` | PostgreSQL + optional pgAdmin | 5432, 5050 |
+| `monitoring` | Prometheus + Grafana + Node Exporter | 9090, 3000, 9100 |
 
 ## Usage
 
@@ -25,5 +23,7 @@ cd devops-dockerfiles/<stack>
 docker compose up -d
 ```
 
-Each stack includes environment files, health checks, and optional TLS.
-
+Database and observability ports bind to `127.0.0.1` by default. Set the
+corresponding `*_BIND_ADDRESS` variable only when remote access is intentional
+and protected by a firewall or private network. Create the password files under
+each stack's `secrets/` directory before starting services that use them.
