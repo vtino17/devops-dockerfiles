@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:16-alpine
     ports:
-      - "5432:5432"
+      - "${POSTGRES_BIND_ADDRESS:-127.0.0.1}:5432:5432"
     environment:
       POSTGRES_DB: appdb
       POSTGRES_USER: app
@@ -22,7 +22,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4:latest
     ports:
-      - "5050:80"
+      - "${PGADMIN_BIND_ADDRESS:-127.0.0.1}:5050:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD_FILE: /run/secrets/pgadmin_password
